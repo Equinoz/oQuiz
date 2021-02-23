@@ -23,16 +23,6 @@ CREATE TABLE "quiz" (
   "user_id" integer NOT NULL REFERENCES "user" ("id")
 );
 
-CREATE TABLE "question" (
-  "id" int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  "question" text NOT NULL,
-  "anecdote" text,
-  "wiki" text,
-  "level_id" integer NOT NULL REFERENCES "level" ("id"),
-  "answer_id" integer NOT NULL REFERENCES "answer" ("id"),
-  "quiz_id" integer NOT NULL REFERENCES "quiz" ("id")
-);
-
 CREATE TABLE "answer" (
   "id" int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "description" text NOT NULL,
@@ -42,6 +32,16 @@ CREATE TABLE "answer" (
 CREATE TABLE "level" (
   "id" int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "name" text NOT NULL
+);
+
+CREATE TABLE "question" (
+  "id" int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  "question" text NOT NULL,
+  "anecdote" text,
+  "wiki" text,
+  "level_id" integer NOT NULL REFERENCES "level" ("id"),
+  "answer_id" integer NOT NULL REFERENCES "answer" ("id"),
+  "quiz_id" integer NOT NULL REFERENCES "quiz" ("id")
 );
 
 CREATE TABLE "tag" (
