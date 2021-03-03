@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS "user",
 "_m2m_quiz_tag";
 
 CREATE TABLE "user" (
-  "id" int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  "id" integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "email" text NOT NULL,
   "password" text NOT NULL,
   "firstname" text,
@@ -17,25 +17,25 @@ CREATE TABLE "user" (
 );
 
 CREATE TABLE "quiz" (
-  "id" int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  "id" integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "title" text NOT NULL,
   "description" text,
   "user_id" integer NOT NULL REFERENCES "user" ("id")
 );
 
 CREATE TABLE "answer" (
-  "id" int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  "id" integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "description" text NOT NULL,
   "question_id" integer NOT NULL
 );
 
 CREATE TABLE "level" (
-  "id" int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  "id" integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "name" text NOT NULL
 );
 
 CREATE TABLE "question" (
-  "id" int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  "id" integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "question" text NOT NULL,
   "anecdote" text,
   "wiki" text,
@@ -45,7 +45,7 @@ CREATE TABLE "question" (
 );
 
 CREATE TABLE "tag" (
-  "id" int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  "id" integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   "name" text NOT NULL
 );
 
